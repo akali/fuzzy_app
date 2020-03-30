@@ -25,7 +25,7 @@ SECRET_KEY = 'l6f@u169b8=-n3mae+mug@p^q8fb^mk60ho!r7i@b9+h=1qhbk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fuzzy-query.herokuapp.com']
+ALLOWED_HOSTS = ['fuzzy-query.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
