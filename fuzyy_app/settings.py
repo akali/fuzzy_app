@@ -25,7 +25,7 @@ SECRET_KEY = 'l6f@u169b8=-n3mae+mug@p^q8fb^mk60ho!r7i@b9+h=1qhbk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fuzzy-query.herokuapp.com']
 
 
 # Application definition
@@ -76,6 +76,8 @@ WSGI_APPLICATION = 'fuzyy_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+DATABASE_URL = os.getenv('DATABASE_URL')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,6 +85,10 @@ DATABASES = {
     }
 }
 
+if DATABASE_URL is not None:
+    import dj_database_url
+
+    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
